@@ -1,6 +1,6 @@
-========================================
-README for A simple text-based countdown
-========================================
+==================================================
+README for a simple text-based countdown in Python
+==================================================
 
 Problem: You want to count down to an event (e.g., a rocket launch).
 But the web-based animated countdown consumes too much screen space
