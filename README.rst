@@ -11,6 +11,13 @@ Solution: a text-based countdown in a small shell or console window.
 This one, ``down.py``, is written in Python 3.
 Rather than writing a newline each time, this script rewrites the same line.
 
+..  image:: pics/countdown-OCO-2.png
+    :height: 82
+    :width: 682
+    :scale: 50 %
+    :alt: Countdown for OCO-2, launching July 1, 2014
+    :align: right
+
 Help
 ====
 
