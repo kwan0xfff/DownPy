@@ -2,6 +2,18 @@
 README for a simple text-based countdown in Python
 ==================================================
 
+Update
+======
+
+If you want the time until the launch of ORBCOMM OG2 on SpaceX Falcon 9
+(and subsequent F9 landing test), use one of these commands::
+
+    $ ./down.py 2014-07-14 09:21 -z -4:00
+    $ python3 down.py 2014-07-14 09:21 -z -4:00
+
+Overview
+========
+
 Problem: You want to count down to an event (e.g., a rocket launch).
 But the web-based animated countdown consumes too much screen space
 and battery power (i.e., your laptop's fan turns on when you go to that
