@@ -8,8 +8,10 @@ Update
 If you want the time until the launch of ORBCOMM OG2 on SpaceX Falcon 9
 (and subsequent F9 landing test), use one of these commands::
 
-    $ ./down.py 2014-07-14 09:21 -z -4:00
-    $ python3 down.py 2014-07-14 09:21 -z -4:00
+    $. /down.py 2014-07-14 11:44 -z -4:00
+    $ python3 down.py 2014-07-14 11:44 -z -4:00
+
+This time was updated by SpaceX around 8:04am EDT.
 
 Overview
 ========
