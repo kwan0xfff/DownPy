@@ -5,8 +5,8 @@
 import sys
 import datetime as dt
 import time
-from optparse import OptionParser
-import pdb
+import argparse
+#import pdb
 
 
 def tdelta2dhms(tdelta):
@@ -46,15 +46,16 @@ def parseISOdatetime(datestr, timestr, zonestr):
 def parse():
     "parse command line arguments"
 
-    usage = "usage: %prog [options] yyyy-dd-mm hh:mm"
-    parser = OptionParser(usage=usage)
-    parser.add_option("-z", "--zone", dest="zone", help="timezone as [-]hh:mm", 
+    parser = argparse.ArgumentParser(description="Count down to an event.")
+    parser.add_argument("datestr", metavar="yyyy-mm-dd", help="event year-month-day")
+    parser.add_argument("timestr", metavar="hh:mm:ss", help="event hour:minte:second")
+    parser.add_argument("-z", "--zone", dest="zone", help="timezone as [-]hh:mm", 
             default="00:00")
-    parser.add_option("-c", "--count", dest="count", help="number of iterations",
-        type="int", default=999999999)
-    parser.add_option("-i", "--interval", dest="interval", help="seconds between timesteps",
-        type="int", default=1)
-    parser.add_option("-n", "--now", dest="show_now", help="show current time",
+    parser.add_argument("-c", "--count", dest="count", help="number of iterations",
+        type=int, default=999999999)
+    parser.add_argument("-i", "--interval", dest="interval", help="seconds between timesteps",
+        type=int, default=1)
+    parser.add_argument("-n", "--now", dest="show_now", help="show also current time",
         action="store_true", default=False)
 
     return parser
@@ -63,15 +64,15 @@ def parse():
 def main(argv):
 
     p  = parse()
-    (opts, args) = p.parse_args()
-    datestr = args[0]
-    timestr = args[1]
+    args = p.parse_args()
+    datestr = args.datestr
+    timestr = args.timestr
     if len(timestr) == 5:
         timestr += ':00'
-    counter = opts.count
-    zonestr = opts.zone
-    interval = opts.interval
-    show_now = opts.show_now
+    counter = args.count
+    zonestr = args.zone
+    interval = args.interval
+    show_now = args.show_now
     launch_time = parseISOdatetime(datestr, timestr, zonestr)
 
     counter -= 1
