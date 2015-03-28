@@ -2,17 +2,6 @@
 README for a simple text-based countdown in Python
 ==================================================
 
-Update
-======
-
-If you want the time until the launch of ORBCOMM OG2 on SpaceX Falcon 9
-(and subsequent F9 landing test), use one of these commands::
-
-    $. /down.py 2014-07-14 11:44 -z -4:00
-    $ python3 down.py 2014-07-14 11:44 -z -4:00
-
-This time was updated by SpaceX around 8:04am EDT.
-
 Overview
 ========
 
@@ -20,6 +9,7 @@ Problem: You want to count down to an event (e.g., a rocket launch).
 But the web-based animated countdown consumes too much screen space
 and battery power (i.e., your laptop's fan turns on when you go to that
 web page).
+At least, that was the experience that motivated this project...
 
 Solution: a text-based countdown in a small shell or console window.
 This one, ``down.py``, is written in Python 3.
@@ -37,16 +27,25 @@ Help
 
 Here's what you get when you ask for help (``./down.py -h``)::
 
-    Usage: down.py [options] yyyy-dd-mm hh:mm
+    usage: down.py [-h] [-z ZONE] [-c COUNT] [-i INTERVAL] [-n]
+                   yyyy-mm-dd hh:mm:ss
 
-    Options:
+    Count down to an event.
+
+    positional arguments:
+      yyyy-mm-dd            event year-month-day
+      hh:mm:ss              event hour:minte:second
+
+    optional arguments:
       -h, --help            show this help message and exit
-      -z ZONE, --zone=ZONE  timezone as [-]hh:mm
-      -c COUNT, --count=COUNT
+      -z ZONE, --zone ZONE  timezone as [-]hh:mm
+      -c COUNT, --count COUNT
                             number of iterations
-      -i INTERVAL, --interval=INTERVAL
+      -i INTERVAL, --interval INTERVAL
                             seconds between timesteps
       -n, --now             show current time
+
+
 
 The output is of the form::
 
