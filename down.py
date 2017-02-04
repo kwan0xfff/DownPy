@@ -23,9 +23,11 @@ def tdelta2dhms(tdelta):
 
 def parseISOdatetime(datestr, timestr, zonestr):
     """Parse date, time, and zone from date-time-zone string as:
-      yyyy-mm-dd hh:mm:ss [-]zz:zz
+      yyyy-mm-dd hh:mm:ss -z[-]zz:zz
     where [-]zz:zz is zone offset from UTC. (West requires '-' to subtract
-    from UTC.)
+    from UTC.)  Example:
+        ./down.py 2017-02-14 11:34:00 -z-5:00
+
     """
     #pdb.set_trace()
     delems = [ int(s) for s in datestr.split('-') ]
@@ -49,8 +51,9 @@ def parse():
     parser = argparse.ArgumentParser(description="Count down to an event.")
     parser.add_argument("datestr", metavar="yyyy-mm-dd", help="event year-month-day")
     parser.add_argument("timestr", metavar="hh:mm:ss", help="event hour:minte:second")
-    parser.add_argument("-z", "--zone", dest="zone", help="timezone as [-]hh:mm", 
-            default="00:00")
+    parser.add_argument("-z", "--zone", dest="zone",
+        help="timezone as [-]hh:mm, no whitespace after '-z'", 
+        default="00:00")
     parser.add_argument("-c", "--count", dest="count", help="number of iterations",
         type=int, default=999999999)
     parser.add_argument("-i", "--interval", dest="interval", help="seconds between timesteps",
